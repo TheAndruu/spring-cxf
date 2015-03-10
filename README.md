@@ -3,7 +3,7 @@
 Demonstrates ability to host a JAX-WS service using Spring Boot and Apache CXF with zero XML configuration.
 
 ## To run
-In a terminal, execute: ./gradlew bootRun
+In a terminal, execute: `./gradlew bootRun`
 
 Alternatively can be run in your IDE of choice by running `demo.spring.service.Application.java` as a normal Java application.
 
