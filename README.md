@@ -8,7 +8,7 @@ In a terminal, execute: `./gradlew bootRun`
 Alternatively can be run in your IDE of choice by running `demo.spring.service.Application.java` as a normal Java application.
 
 ## Service endpoint
-The service endpoint is "api/hello".  If running the embedded tomcat from the command line or within an IDE, this will be:
+The service endpoint is `api/hello`.  If running the embedded tomcat from the command line or within an IDE, this will be:
 
     http://localhost:8080/api/hello?wsdl
 
