@@ -1,0 +1,55 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin :'no.nils.wsdl2java'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+jar {
+    baseName = 'ws-client'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile 'org.apache.cxf:cxf-rt-frontend-jaxws:3.0.4'
+    compile 'org.apache.cxf:cxf-rt-transports-http:3.0.4'
+    compile 'org.apache.cxf:cxf-core:3.0.4'
+    compile 'org.slf4j:slf4j-api:1.7.10'
+    
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        // for wsdl2java
+        jcenter()
+    }
+    dependencies {
+        // for wsdl2java
+        classpath 'no.nils:wsdl2java:0.6'
+    }
+}
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+wsdl2java{
+    wsdlsToGenerate = [
+            ["$projectDir/src/main/resources/wsdl/hello.wsdl"]
+    ]
+    generatedWsdlDir = file("$projectDir/generatedsources")
+    wsdlDir = file("$projectDir/src/main/resources/wsdl")
+    cxfVersion = "3.0.4"
+}
+// To enable, change this to true and it will generate the client code
+wsdl2java.enabled = false;

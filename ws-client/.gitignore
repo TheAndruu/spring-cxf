@@ -1,0 +1,6 @@
+/build/
+/bin/
+/generatedsources/
+/.settings/
+/.classpath
+/.project
