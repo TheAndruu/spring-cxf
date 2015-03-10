@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'war'
+apply plugin: 'spring-boot'
 
 sourceCompatibility = 1.8
 version = '1.0'
@@ -28,6 +29,14 @@ test {
     systemProperties 'property': 'value'
 }
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE")
+    }
+}
 uploadArchives {
     repositories {
        flatDir {
@@ -35,6 +44,8 @@ uploadArchives {
        }
     }
 }
+
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.2.1'
 }
