@@ -1,12 +1,12 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'war'
 
 sourceCompatibility = 1.8
 version = '1.0'
+
 jar {
-    manifest {
-        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
-    }
+    baseName = 'spring-cxf'
 }
 
 repositories {
@@ -14,9 +14,15 @@ repositories {
 }
 
 dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-ws:1.2.2.RELEASE'
+    compile 'org.apache.cxf:cxf-rt-frontend-jaxws:3.0.4'
+    compile 'org.apache.cxf:cxf-rt-transports-http:3.0.4'
+    compile 'org.apache.cxf:cxf-core:3.0.4'
+    
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
     testCompile group: 'junit', name: 'junit', version: '4.+'
 }
+
 
 test {
     systemProperties 'property': 'value'
@@ -29,8 +35,6 @@ uploadArchives {
        }
     }
 }
-
-
 task wrapper(type: Wrapper) {
     gradleVersion = '2.2.1'
 }
