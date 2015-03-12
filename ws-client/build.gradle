@@ -56,4 +56,4 @@ wsdl2java{
     cxfVersion = "3.0.4"
 }
 // To enable, change this to true and it will generate the client code
-wsdl2java.enabled = true;
+wsdl2java.enabled = false;
