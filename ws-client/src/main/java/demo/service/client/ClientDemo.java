@@ -17,6 +17,6 @@ public class ClientDemo {
 
         HelloWorld client = (HelloWorld) factory.create();
         String response = client.sayHi("hi, you beautiful world!");
-        log.info("Response from server: " + response);
+        System.out.println("Response from server: " + response);
     }
 }

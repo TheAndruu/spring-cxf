@@ -44,12 +44,16 @@ uploadArchives {
 }
 
 wsdl2java{
+    // specify options, with last argument being the wsdl to process
     wsdlsToGenerate = [
-            ["$projectDir/src/main/resources/wsdl/hello.wsdl"]
+            ['-wsdlLocation', 'classpath:wsdl/helloWorld.wsdl', "$projectDir/src/main/resources/wsdl/hello.wsdl"]
     ]
+    // where the outputted java classes go
     generatedWsdlDir = file("$projectDir/generatedsources")
+    // directory to monitor for changes to wsdl
     wsdlDir = file("$projectDir/src/main/resources/wsdl")
+    // self-explanatory
     cxfVersion = "3.0.4"
 }
 // To enable, change this to true and it will generate the client code
-wsdl2java.enabled = false;
+wsdl2java.enabled = true;
