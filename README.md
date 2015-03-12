@@ -8,18 +8,18 @@ In a terminal, execute: `./gradlew bootRun`
 Alternatively can be run in your IDE of choice by running `demo.spring.service.Application.java` as a normal Java application.
 
 ### Service endpoint
-The service endpoint is `api/hello`.  If running the embedded tomcat from the command line or within an IDE, this will be:
+The service endpoint is `<context-path>/api/hello`.  The full path to the WSDL/service is:
 
-    http://localhost:8080/api/hello?wsdl
+    http://localhost:8080/ws-server-1.0/api/hello?wsdl
 
-The built WAR can also be dropped into a servlet container (such as Tomcat or Jetty).  Typically this updates the context path of the URI, so inside a servlet container, the path will default to: `http://localhost:8080/<name-of-war-file>/api/hello?wsdl`
+The built WAR can also be dropped into a servlet container (such as Tomcat or Jetty).  
 
 ## Generate client 
 The same WSDL available at `api/hello?wsdl` is included as a resource for code generation purposes.  To compile code from the WSDL definition, in `build.gradle`, set the property `wsdl2java.enabled = ` to `true`, then execute:
 
     ./gradlew ws-client:wsdl2java
     
-This will output the compiled classes in `ws-client/generatedsources`, which can then be used to hit a running endpoint.  Suggest copying the outputted classes to a source folder and importing it as a separate library.  This generation only needs to occur when the service interface changes.
+This will output the compiled classes in `ws-client/generatedsources`, which can then be used to hit a running service without any coupling or hard dependencies.  This generation only needs to occur when the service interface changes.
 
 
 ## To test

@@ -35,6 +35,8 @@ buildscript {
         classpath 'no.nils:wsdl2java:0.6'
     }
 }
+
+
 uploadArchives {
     repositories {
        flatDir {

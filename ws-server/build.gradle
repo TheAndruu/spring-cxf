@@ -10,9 +10,7 @@ jar {
     baseName = 'ws-server'
 }
 
-springBoot {
-  mainClass = "demo.spring.service.Application"
-}
+mainClassName = 'demo.spring.service.Application'
 
 repositories {
     mavenCentral()
